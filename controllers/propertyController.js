@@ -30,7 +30,7 @@ const createProperties = asyncHandler(async (req, res) => {
     address,
     price,
     property_type,
-    image: image || "https://via.placeholder.com/150", // Default image if none is provided
+    image, 
   });
 
   res.status(201).json({

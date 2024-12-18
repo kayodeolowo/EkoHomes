@@ -25,7 +25,8 @@ const propertySchema = mongoose.Schema(
 
     image: {
       type: String,
-      default: "https://via.placeholder.com/150", // Placeholder image if none is provided
+      required: [true, "Please add an image URL"],
+     
     },
   },
   {
