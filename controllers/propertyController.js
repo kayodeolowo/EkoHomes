@@ -1,22 +1,12 @@
 const asyncHandler = require("express-async-handler");
 const mongoose = require("mongoose");
-const Property = require("../models/propertiesModels")
+const Property = require("../models/propertiesModels");
 
-const {paginate, search} = require("../utils/paginate")
-
-
-
-
+const { paginate, search } = require("../utils/paginate");
 
 // Create a property
 const createProperties = asyncHandler(async (req, res) => {
-  const { 
-    property_name, 
-    address, 
-    price, 
-    property_type, 
-    image 
-  } = req.body;
+  const { property_name, address, price, property_type, image } = req.body;
 
   // Array to collect missing fields
   let missingFields = [];
@@ -29,7 +19,9 @@ const createProperties = asyncHandler(async (req, res) => {
   // Check for missing fields
   if (missingFields.length > 0) {
     res.status(400);
-    throw new Error(`The following fields are required: ${missingFields.join(", ")}`);
+    throw new Error(
+      `The following fields are required: ${missingFields.join(", ")}`
+    );
   }
 
   // Create a new property
@@ -50,7 +42,12 @@ const createProperties = asyncHandler(async (req, res) => {
 
 const getProperties = asyncHandler(async (req, res) => {
   // Extract query parameters
-  let { page = 1, pageSize = 10, search: searchTerm = "", propertyType } = req.query;
+  let {
+    page = 1,
+    pageSize = 10,
+    search: searchTerm = "",
+    propertyType,
+  } = req.query;
 
   // Fetch all properties
   const allProperties = await Property.find()
@@ -59,7 +56,9 @@ const getProperties = asyncHandler(async (req, res) => {
 
   // Filter by propertyType if provided
   const filteredProperties = propertyType
-    ? allProperties.filter((property) => property.property_type === propertyType)
+    ? allProperties.filter(
+        (property) => property.property_type === propertyType
+      )
     : allProperties;
 
   // Apply search (by property_name and address)
@@ -84,9 +83,8 @@ const getProperties = asyncHandler(async (req, res) => {
   });
 });
 
-
 const getPropertyById = asyncHandler(async (req, res) => {
-  const { id } = req.params;  // Get the property ID from the route parameter
+  const { id } = req.params; // Get the property ID from the route parameter
 
   // Find the property by ID
   const property = await Property.findById(id);
@@ -105,6 +103,4 @@ const getPropertyById = asyncHandler(async (req, res) => {
   });
 });
 
-
-
-module.exports = {createProperties, getProperties, getPropertyById}
+module.exports = { createProperties, getProperties, getPropertyById };
