@@ -3,7 +3,7 @@ const errorHandler = require("./middleware/errorHandler");
 const dotenv = require("dotenv").config();
 const cors = require("cors"); // Import cors
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const connectDatabase = require('./config/database');
 
 // Connect to the database
@@ -23,6 +23,6 @@ app.use("/ekohomes/api/v1/", require("./routes/propertyRoutes"));
 app.use(errorHandler);
 
 // Start server
-app.listen(port, () => {
-    console.log(`Server running on ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
 });
