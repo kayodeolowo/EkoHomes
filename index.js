@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/ekohomes/api/v1/", require("./routes/propertyRoutes"));
+app.use("/api/v1/", require("./routes/propertyRoutes"));
 
 
 // Error handler middleware
