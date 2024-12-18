@@ -8,6 +8,16 @@ NODE_ENV  = development
 DB_LOCAL_URI = mongodb://localhost:27017
 ACCESS_TOKEN_SECRET = usdb8495ojd2hufuwbfub3f3ubc48487584u84yrfc
 
+post property
+http://localhost:10000/ekohomes/api/v1/createProperty
 
+get properties
+http://localhost:10000/ekohomes/api/v1/properties
+
+get properties search
+http://localhost:10000/ekohomes/api/v1/properties?search=Down
+
+get property by id
+http://localhost:10000/ekohomes/api/v1/properties/{id}
 
 "npm run dev" to start app
