@@ -10,7 +10,11 @@ const connectDatabase = require('./config/database');
 connectDatabase();
 
 // Enable CORS for all routes
-app.use(cors()); 
+app.use(cors({
+    origin: "*", // Allows all origins; restrict this for production
+    methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS", // Allowed HTTP methods
+    allowedHeaders: "Content-Type,Authorization", // Allowed headers
+  })); 
 
 // Apply JSON parsing to incoming requests
 app.use(express.json());
