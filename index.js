@@ -23,6 +23,7 @@ app.use("/ekohomes/api/v1/", require("./routes/propertyRoutes"));
 app.use(errorHandler);
 
 // Start server
-app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
 });
+
