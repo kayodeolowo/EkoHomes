@@ -5,7 +5,9 @@ here is the .env needed to run
 
 PORT = 10000
 NODE_ENV  = development
-DB_LOCAL_URI = mongodb://localhost:27017
+DB_LOCAL_URI = mongodb+srv://kayode:kayode@kaycluster.aurlurs.mongodb.net/?retryWrites=true&w=majority&appName=KayCluster
+
+
 ACCESS_TOKEN_SECRET = usdb8495ojd2hufuwbfub3f3ubc48487584u84yrfc
 
 post property
